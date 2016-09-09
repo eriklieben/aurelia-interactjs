@@ -69,6 +69,9 @@
     "directories": {
       "dist": "dist/amd"
     },
+    "dependencies": {
+      "interact.js": "^1.2.6"
+    },
     "devDependencies": {
       "aurelia-polyfills": "^1.0.0-beta.1.1.0"
     }
