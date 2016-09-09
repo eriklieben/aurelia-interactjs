@@ -2,6 +2,25 @@
 
 Aurelia plugin to use the [interact.js](http://interactjs.io/) library.
 
+# Installation
+
+Register the plugin:
+
+## JSPM
+
+```
+jspm i npm:aurelia-interactjs
+```
+
+Add the following line to main.js or main.ts
+```diff
+export function configure(aurelia) {
+  aurelia.use
+    .standardConfiguration()
+    .developmentLogging()
++    .plugin("aurelia-interactjs");
+```
+
 # Generic attributes
 Each attribute can be supplied with custom options that will be pased to interactjs, see the interactjs documentation for the options http://interactjs.io/docs/#action-options
 
