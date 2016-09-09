@@ -14,7 +14,7 @@
   },
   "license": "CC0-1.0",
   "author": "Erik Lieben <erik.lieben@gmail.com> (https://www.eriklieben.com/)",
-  "main": "dist/amd",
+  "main": "dist/amd/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/eriklieben/aurelia-interactjs"
@@ -70,7 +70,7 @@
       "dist": "dist/amd"
     },
     "dependencies": {
-      "interact.js": "^1.2.6"
+      "interact": "interact.js@^1.2.6"
     },
     "devDependencies": {
       "aurelia-polyfills": "^1.0.0-beta.1.1.0"
@@ -78,6 +78,7 @@
   },
   "dependencies": {
     "aurelia-framework": "^1.0.2",
+    "interact.js": "^1.2.6",
     "typescript": "^2.0.2"
   }
 }

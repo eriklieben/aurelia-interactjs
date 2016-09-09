@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "interact.js"], function (require, exports, aurelia_framework_1, interact) {
+define(["require", "exports", "aurelia-framework", "interact"], function (require, exports, aurelia_framework_1, interact) {
     "use strict";
     var InteractDropzoneCustomAttribute = (function () {
         function InteractDropzoneCustomAttribute(element) {

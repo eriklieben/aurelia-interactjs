@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var aurelia_framework_1 = require("aurelia-framework");
-var interact = require("interact.js");
+var interact = require("interact");
 var InteractresizableCustomAttribute = (function () {
     function InteractresizableCustomAttribute(element) {
         this.element = element;
