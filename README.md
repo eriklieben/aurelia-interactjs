@@ -4,10 +4,8 @@ Aurelia plugin to use the [interact.js](http://interactjs.io/) library.
 
 # Installation
 
-Register the plugin:
-
 ## JSPM
-
+Install the package:
 ```
 jspm i npm:aurelia-interactjs
 ```
@@ -19,6 +17,30 @@ export function configure(aurelia) {
     .standardConfiguration()
     .developmentLogging()
 +    .plugin("aurelia-interactjs");
+```
+## Aurelia-CLI
+Install the package:
+```
+npm i aurelia-interactjs interact.js --save
+```
+
+Open up the file ```aurelia_project/aurelia.json``` and add the following in the bundles, vender-bundle.js dependencies section:
+```diff
+"aurelia-templating-binding",
++ {
++   "name": "interact.js",
++   "path": "../node_modules/interact.js/dist",
++   "main": "interact"
++ },
++ {
++   "name": "aurelia-interactjs",
++   "path": "../node_modules/aurelia-interactjs/dist/amd",
++   "main": "index"
++ },          
+{
+  "name": "text",
+  "path": "../scripts/text"
+},
 ```
 
 # Generic attributes
