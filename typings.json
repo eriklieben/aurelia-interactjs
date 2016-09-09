@@ -1,5 +1,9 @@
 {
   "globalDependencies": {
+    "interact": "registry:dt/interact#1.0.25+20160613160313",
     "jasmine": "registry:dt/jasmine#2.2.0+20160621224255"
+  },
+  "dependencies": {
+    "aurelia-framework": "npm:aurelia-framework"
   }
 }
