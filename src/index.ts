@@ -1,6 +1,7 @@
 export function configure(config) {
   config.globalResources([
     "./interact-draggable",
-    "./interact-dropzone"
+    "./interact-dropzone",
+    "./interact-gesturable"
   ]);
 }
