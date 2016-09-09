@@ -3,7 +3,10 @@ System.register([], function(exports_1, context_1) {
     var __moduleName = context_1 && context_1.id;
     function configure(config) {
         config.globalResources([
-            "./interact-draggable.ts"
+            "./interact-draggable",
+            "./interact-dropzone",
+            "./interact-gesturable",
+            "./interact-resizable"
         ]);
     }
     exports_1("configure", configure);

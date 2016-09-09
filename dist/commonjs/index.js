@@ -1,7 +1,10 @@
 "use strict";
 function configure(config) {
     config.globalResources([
-        "./interact-draggable.ts"
+        "./interact-draggable",
+        "./interact-dropzone",
+        "./interact-gesturable",
+        "./interact-resizable"
     ]);
 }
 exports.configure = configure;
