@@ -10,7 +10,7 @@ Install the package:
 jspm i npm:aurelia-interactjs
 ```
 
-Add the following line to main.js or main.ts
+Add the following line to ```src/main.js``` or ```src/main.ts```:
 ```diff
 export function configure(aurelia) {
   aurelia.use
@@ -41,6 +41,18 @@ Open up the file ```aurelia_project/aurelia.json``` and add the following in the
   "name": "text",
   "path": "../scripts/text"
 },
+```
+Add the following line to ```src/main.js``` or ```src/main.ts```:
+```diff
+export function configure(aurelia: Aurelia) {
+  aurelia.use
+    .standardConfiguration()
+    .feature('resources')
++    .plugin('aurelia-interactjs');
+
+  if (environment.debug) {
+    aurelia.use.developmentLogging();
+  }
 ```
 
 # Generic attributes
