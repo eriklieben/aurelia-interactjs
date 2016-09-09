@@ -1,3 +1,5 @@
 export function configure(config) {
-  config.globalResources('./hello-world');
+  config.globalResources([
+    "./interact-draggable.ts"
+  ]);
 }

@@ -1,6 +1,8 @@
 "use strict";
 function configure(config) {
-    config.globalResources('./hello-world');
+    config.globalResources([
+        "./interact-draggable.ts"
+    ]);
 }
 exports.configure = configure;
 
