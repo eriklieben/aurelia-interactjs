@@ -10,10 +10,6 @@
 ### Features
 
 * enable usage with Aurelia-CLI and JSPM ([afc9fc6](https://github.com/eriklieben/aurelia-interactjs/commit/afc9fc6))
-* interact-draggable attribute ([a564dde](https://github.com/eriklieben/aurelia-interactjs/commit/a564dde))
-* interact-dropzone attribute ([cf8162a](https://github.com/eriklieben/aurelia-interactjs/commit/cf8162a))
-* interact-gesturable attribute ([f33889a](https://github.com/eriklieben/aurelia-interactjs/commit/f33889a))
-* interact-resizable attribute ([d99fb1a](https://github.com/eriklieben/aurelia-interactjs/commit/d99fb1a))
 
 
 
