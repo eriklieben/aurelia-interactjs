@@ -59,6 +59,7 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
     "systemjs": "^0.19.36",
+    "typescript": "^2.0.2",
     "vinyl-paths": "^2.1.0",
     "yargs": "^4.8.1"
   },
@@ -73,12 +74,17 @@
       "interact": "interact.js@^1.2.6"
     },
     "devDependencies": {
-      "aurelia-polyfills": "^1.0.0-beta.1.1.0"
+      "aurelia-polyfills": "^1.0.0-beta.1.1.0",
+      "babel": "babel-core@^5.8.24",
+      "babel-runtime": "^5.8.24",
+      "core-js": "^1.1.4"
     }
   },
   "dependencies": {
     "aurelia-framework": "^1.0.2",
-    "interact.js": "^1.2.6",
-    "typescript": "^2.0.2"
+    "interact.js": "^1.2.6"
+  },
+  "peerDependencies": {
+    "interact.js": "^1.2.6"
   }
 }
