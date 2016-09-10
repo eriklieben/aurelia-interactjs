@@ -1,3 +1,13 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.0...v1.0.1) (2016-09-10)
+
+
+### Bug Fixes
+
+* move typescript to dev-dependencies ([5bc2399](https://github.com/eriklieben/aurelia-interactjs/commit/5bc2399))
+
+
+
 <a name="1.0.0"></a>
 ## 1.0.0 (2016-09-09)
 
