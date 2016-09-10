@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/eriklieben/aurelia-interactjs/issues"
   },
-  "license": "CC0-1.0",
+  "license": "MIT",
   "author": "Erik Lieben <erik.lieben@gmail.com> (https://www.eriklieben.com/)",
   "main": "dist/amd/index.js",
   "repository": {
