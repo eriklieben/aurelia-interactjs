@@ -1,3 +1,13 @@
+<a name="1.0.4"></a>
+## [1.0.4](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.3...v1.0.4) (2016-09-12)
+
+
+### Features
+
+* optional attribute draggable and dropzone ([dadb0c1](https://github.com/eriklieben/aurelia-interactjs/commit/dadb0c1))
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.2...v1.0.3) (2016-09-10)
 
