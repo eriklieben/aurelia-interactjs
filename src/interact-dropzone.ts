@@ -4,11 +4,12 @@ import * as interact from "interact";
 @inject(Element)
 export class InteractDropzoneCustomAttribute {
 
-  @bindable({ defaultBindingMode: bindingMode.oneTime }) options;
-  
+  @bindable({ defaultBindingMode: bindingMode.oneTime })
+  public options;
+
   constructor(private element: HTMLElement) { }
-  
-  attached() {
+
+  public attached() {
     interact(this.element)
       .dropzone(Object.assign({}, this.options || {}))
         .on("dropactivate", (event) => this.dispatch("interact-dropactivate", event))
@@ -17,12 +18,12 @@ export class InteractDropzoneCustomAttribute {
         .on("drop", (event) => this.dispatch("interact-drop", event))
         .on("dropdeactivate", (event) => this.dispatch("interact-dropdeactivate", event));
   }
-  
-  dispatch(name, data) {
+
+  private dispatch(name, data) {
     this.element.dispatchEvent(
       new CustomEvent(name, {
         bubbles: true,
-        detail: data
+        detail: data,
       })
     );
   }

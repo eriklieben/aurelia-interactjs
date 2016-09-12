@@ -4,11 +4,12 @@ import * as interact from "interact";
 @inject(Element)
 export class InteractresizableCustomAttribute {
 
-  @bindable({ defaultBindingMode: bindingMode.oneTime }) options;
-  
+  @bindable({ defaultBindingMode: bindingMode.oneTime })
+  public options;
+
   constructor(private element: HTMLElement) { }
-  
-  attached() {
+
+  public attached() {
     interact(this.element)
       .dropzone(Object.assign({}, this.options || {}))
         .on("resizestart", (event) => this.dispatch("interact-resizestart", event))
@@ -16,12 +17,12 @@ export class InteractresizableCustomAttribute {
         .on("resizeinertiastart", (event) => this.dispatch("interact-resizeinertiastart", event))
         .on("resizeend", (event) => this.dispatch("interact-resizeend", event));
   }
-  
-  dispatch(name, data) {
+
+  private dispatch(name, data) {
     this.element.dispatchEvent(
       new CustomEvent(name, {
         bubbles: true,
-        detail: data
+        detail: data,
       })
     );
   }
