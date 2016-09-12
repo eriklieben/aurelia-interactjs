@@ -28,6 +28,7 @@ gulp.task('changelog', function () {
 // calls the listed sequence of tasks in order
 gulp.task('prepare-release', function(callback) {
   return runSequence(
+    'lint',
     'build',
     'bump-version',
     'changelog',
