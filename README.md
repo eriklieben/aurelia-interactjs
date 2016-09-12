@@ -82,7 +82,7 @@ export class Home {
 The following attributes can be set to catch events
 
 | Attribute                 | Interact.js event |
-| ------------------------- | ----------------- |
+| --------------------------|-------------------|
 | interact-dragstart        | dragstart         |
 | interact-dragmove         | dragmove          |
 | interact-draginertiastart | draginertiastart  |
@@ -91,7 +91,7 @@ The following attributes can be set to catch events
 ## interact-dropzone
 
 | Attribute                 | Interact.js event |
-| ------------------------- | ----------------- |
+|---------------------------|-------------------|
 | interact-dropactivate     | dropactivate      |
 | interact-dragenter        | dragenter         |
 | interact-dragleave        | dragleave         |
@@ -101,7 +101,7 @@ The following attributes can be set to catch events
 ## interact-gesturable
 
 | Attribute                 | Interact.js event |
-| ------------------------- | ----------------- |
+|---------------------------|-------------------|
 | interact-gesturestart     | gesturestart      |
 | interact-gesturemove      | gesturemove       |
 | interact-gestureend       | gestureend        |
@@ -109,8 +109,58 @@ The following attributes can be set to catch events
 ## interact-resizable
 
 | Attribute                   | Interact.js event  |
-| --------------------------- | ------------------ |
+|-----------------------------|--------------------|
 | interact-resizestart        | resizestart        |
 | interact-dragenter          | resizemove         |
 | interact-resizeinertiastart | resizeinertiastart |
 | interact-resizeend          | resizeend          |
+
+
+# Custom attributes draggable and dropzone
+
+By default the attributes ```draggable``` and ```dropzone``` are not loaded (because the use global names).
+
+You can load them by providing the option ```enableDragDropAttributes``` in ```src\main.js``` or ```src\main.ts``` :
+```diff
+export function configure(aurelia) {
+  aurelia.use
+    .standardConfiguration()
+    .developmentLogging()
++    .plugin("aurelia-interactjs", { enableDragDropAttributes: true });
+```
+
+```html
+<div draggable.bind="item" style="width: 25px; height: 25px; background-color:${color}; border: 5px solid yellow">drag me</div>
+
+<div dropzone drop.trigger="itemDropped($event.detail, 'green')" style="width:300px; height: 300px; background-color: green"></div>
+<div dropzone drop.trigger="itemDropped($event.detail, 'red')" style="width:300px; height: 300px; background-color: red"></div>
+```
+
+```javascript
+export class App {
+  item = { name: "some", color: "yellow"};
+
+  updateColor(item, color) {
+    item.color = color;
+  }
+
+}
+```
+
+By default it will add the following css classes to the element in the following states:
+
+# draggable
+
+| class             | state                                                |
+|-------------------|------------------------------------------------------|
+| getting--dragged  | draggable is getting dragged                         |
+| drop--me          | draggable entered a dropzone and can be dropped here |
+
+# dropzone
+
+| class        | state                                               |
+|--------------|-----------------------------------------------------|
+| can--drop    | draggable target can be dropped in the dropzone     |
+| can-catch    | draggable entered this zone and can be dropped here |
+| caught--it   | draggable element is dropped in this zone           |
+

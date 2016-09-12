@@ -26,7 +26,7 @@ var InteractresizableCustomAttribute = (function () {
     InteractresizableCustomAttribute.prototype.dispatch = function (name, data) {
         this.element.dispatchEvent(new CustomEvent(name, {
             bubbles: true,
-            detail: data
+            detail: data,
         }));
     };
     __decorate([

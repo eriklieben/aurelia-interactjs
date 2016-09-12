@@ -38,7 +38,7 @@ System.register(["aurelia-framework", "interact"], function(exports_1, context_1
                 InteractDropzoneCustomAttribute.prototype.dispatch = function (name, data) {
                     this.element.dispatchEvent(new CustomEvent(name, {
                         bubbles: true,
-                        detail: data
+                        detail: data,
                     }));
                 };
                 __decorate([
