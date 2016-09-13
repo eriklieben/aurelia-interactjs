@@ -7,7 +7,7 @@ Aurelia plugin to use the [interact.js](http://interactjs.io/) library.
 ## JSPM
 Install the package:
 ```
-jspm i npm:aurelia-interactjs
+jspm i aurelia-interactjs
 ```
 
 Add the following line to ```src/main.js``` or ```src/main.ts```:
