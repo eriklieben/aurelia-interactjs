@@ -1,5 +1,5 @@
 import { inject } from "aurelia-framework";
-import * as interact from "interact";
+import * as interact from "interact.js";
 
 @inject(Element)
 export class DropzoneCustomAttribute {
