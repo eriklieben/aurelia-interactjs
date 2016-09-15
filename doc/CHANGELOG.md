@@ -1,3 +1,13 @@
+<a name="1.0.5"></a>
+## [1.0.5](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.4...v1.0.5) (2016-09-15)
+
+
+### Bug Fixes
+
+* use npm:interact.js without alias and replace custom ts typings with default DT registry ([ebc762d](https://github.com/eriklieben/aurelia-interactjs/commit/ebc762d))
+
+
+
 <a name="1.0.4"></a>
 ## [1.0.4](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.3...v1.0.4) (2016-09-12)
 
