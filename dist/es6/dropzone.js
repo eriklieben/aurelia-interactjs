@@ -31,10 +31,11 @@ define(["require", "exports", "aurelia-framework", "interact.js"], function (req
                 event.relatedTarget.classList.remove("drop--me");
             })
                 .on("drop", function (event) {
-                if (typeof (event.relatedTarget.au.controller) === "object" && typeof (event.relatedTarget.au.controller.viewModel) === "object") {
+                if (typeof (event.relatedTarget.au.draggable.viewModel) === "object" &&
+                    typeof (event.relatedTarget.au.draggable.viewModel.value) === "object") {
                     _this.element.dispatchEvent(new CustomEvent("drop", {
                         bubbles: true,
-                        detail: event.relatedTarget.au.controller.viewModel,
+                        detail: event.relatedTarget.au.draggable.viewModel.value,
                     }));
                 }
                 event.target.classList.add("caught--it");
