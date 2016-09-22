@@ -28,7 +28,8 @@ export class DropzoneCustomAttribute {
         event.relatedTarget.classList.remove("drop--me");
       })
       .on("drop", event => {
-          if (typeof(event.relatedTarget.au.draggable.viewModel) === "object" && typeof(event.relatedTarget.au.draggable.viewModel.value) === "object") {
+          if (typeof(event.relatedTarget.au.draggable.viewModel) === "object" &&
+          typeof(event.relatedTarget.au.draggable.viewModel.value) === "object") {
 
             this.element.dispatchEvent(
               new CustomEvent("drop", {
