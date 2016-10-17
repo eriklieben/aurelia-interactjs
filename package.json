@@ -1,6 +1,6 @@
 {
   "name": "aurelia-interactjs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Plugin to use interact.js with Aurelia.",
   "keywords": [
     "aurelia",
@@ -74,7 +74,7 @@
       "dist": "dist/amd"
     },
     "dependencies": {
-      "interact": "interact.js@^1.2.6"
+      "interact": "npm:interact.js@^1.2.6"
     },
     "devDependencies": {
       "aurelia-polyfills": "^1.0.0-beta.1.1.0"

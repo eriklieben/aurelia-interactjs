@@ -1,3 +1,14 @@
+<a name="1.0.8"></a>
+## [1.0.8](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.6...v1.0.8) (2016-10-17)
+
+
+### Bug Fixes
+
+* **interact:** import 'interact' instead of 'interact.js' and bump version ([0ad0795](https://github.com/eriklieben/aurelia-interactjs/commit/0ad0795))
+* **jspm:** add interact.js with interact alias ([e4045cb](https://github.com/eriklieben/aurelia-interactjs/commit/e4045cb))
+
+
+
 <a name="1.0.7"></a>
 ## [1.0.7](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.6...v1.0.7) (2016-10-17)
 
