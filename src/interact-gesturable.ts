@@ -1,5 +1,5 @@
 import { inject, bindable, bindingMode } from "aurelia-framework";
-import * as interact from "interact.js";
+import * as interact from "interact";
 
 @inject(Element)
 export class InteractgesturableCustomAttribute {
