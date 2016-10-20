@@ -19,7 +19,7 @@ if (fs) {
           // determinate transpiler to set correct file extension
           let filename = installName + project.transpiler.fileExtension,
             source = './install/' + installName,
-            dest = projectFolder + '/tasks/';
+            dest = projectFolder + 'tasks/';
 
           fs.copy(source + '.js', dest + filename, function (err) {
             if (err) {

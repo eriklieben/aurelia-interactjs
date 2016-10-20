@@ -100,6 +100,10 @@ let configure = (deps) => {
     bundleName = bundle.name;
   }
 
+  if (!bundle.dependencies) {
+    bundle.dependencies = [];
+  }
+
   console.log(`[INFO] Bundle found: ${bundle.name}. Configuring new dependencies in aurelia.json for ${bundleName}...`);
   for (let dep of deps) {
     let name = dep.name || dep,
