@@ -19,6 +19,9 @@
     "type": "git",
     "url": "https://github.com/eriklieben/aurelia-interactjs"
   },
+  "scripts": {
+    "postinstall": "node ./install/post-install.js"
+  },
   "devDependencies": {
     "aurelia-tools": "^0.2.4",
     "babel": "^6.5.2",

@@ -13,14 +13,15 @@ var interact = require("interact");
 var DropzoneCustomAttribute = (function () {
     function DropzoneCustomAttribute(element) {
         this.element = element;
+        this.defaults = {
+            accept: ".draggable",
+            overlap: .5,
+        };
     }
     DropzoneCustomAttribute.prototype.attached = function () {
         var _this = this;
         interact(this.element)
-            .dropzone({
-            accept: ".draggable",
-            overlap: .5,
-        })
+            .dropzone(Object.assign({}, this.value || this.defaults))
             .on("dropactivate", function (event) { return event.target.classList.add("can--drop"); })
             .on("dragenter", function (event) {
             var draggableElement = event.relatedTarget, dropzoneElement = event.target;

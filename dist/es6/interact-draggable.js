@@ -16,7 +16,7 @@ define(["require", "exports", "aurelia-framework", "interact"], function (requir
         InteractDraggableCustomAttribute.prototype.attached = function () {
             var _this = this;
             interact(this.element)
-                .draggable(Object.assign({}, this.options || {}))
+                .draggable(Object.assign({}, this.value || {}))
                 .on("dragstart", function (event) { return _this.dispatch("interact-dragstart", event); })
                 .on("dragmove", function (event) { return _this.dispatch("interact-dragmove", event); })
                 .on("draginertiastart", function (event) { return _this.dispatch("interact-draginertiastart", event); })
@@ -28,10 +28,6 @@ define(["require", "exports", "aurelia-framework", "interact"], function (requir
                 detail: data,
             }));
         };
-        __decorate([
-            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }), 
-            __metadata('design:type', Object)
-        ], InteractDraggableCustomAttribute.prototype, "options", void 0);
         InteractDraggableCustomAttribute = __decorate([
             aurelia_framework_1.inject(Element), 
             __metadata('design:paramtypes', [HTMLElement])

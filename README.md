@@ -111,7 +111,7 @@ The following attributes can be set to catch events
 | Attribute                   | Interact.js event  |
 |-----------------------------|--------------------|
 | interact-resizestart        | resizestart        |
-| interact-dragenter          | resizemove         |
+| interact-resizemove         | resizemove         |
 | interact-resizeinertiastart | resizeinertiastart |
 | interact-resizeend          | resizeend          |
 

@@ -1,17 +1,19 @@
-import { inject, bindable, bindingMode } from "aurelia-framework";
+import { inject } from "aurelia-framework";
 import * as interact from "interact";
 
 @inject(Element)
-export class InteractgesturableCustomAttribute {
+export class InteractGesturableCustomAttribute {
 
-  @bindable({ defaultBindingMode: bindingMode.oneTime })
-  public options;
+  /**
+   * interact.js options
+   */
+  value: {[key: string]: any};
 
   constructor(private element: HTMLElement) { }
 
   public attached() {
     interact(this.element)
-      .dropzone(Object.assign({}, this.options || {}))
+      .dropzone(Object.assign({}, this.value || {}))
         .on("gesturestart", (event) => this.dispatch("interact-gesturestart", event))
         .on("gesturemove", (event) => this.dispatch("interact-gesturemove", event))
         .on("gestureend", (event) => this.dispatch("interact-gestureend", event));

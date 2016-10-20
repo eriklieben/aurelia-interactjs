@@ -1,0 +1,16 @@
+{
+  "name": "interact",
+  "description": "Configurator for aurelia-interactjs plugin. It helps you to configure bundle dependencies.",
+  "flags": [
+    {
+      "name": "bundle",
+      "description": "Sets bundle section to be modified",
+      "type": "string"
+    },
+    {
+      "name": "force",
+      "description": "Overwrite previously set dependencies. This applies to dependencies of aurelia-interactjs only!",
+      "type": "boolean"
+    }
+  ]
+}

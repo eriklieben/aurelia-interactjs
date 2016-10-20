@@ -1,0 +1,12 @@
+[
+  {
+    "name": "interact",
+    "path": "../node_modules/interact.js/dist",
+    "main": "interact"
+  },
+  {
+    "name": "aurelia-interactjs",
+    "path": "../node_modules/aurelia-interactjs/dist/amd",
+    "main": "index"
+  }
+]

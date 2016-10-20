@@ -28,7 +28,7 @@ System.register(["aurelia-framework", "interact"], function(exports_1, context_1
                 DraggableCustomAttribute.prototype.attached = function () {
                     this.element.classList.add("draggable");
                     interact(this.element)
-                        .draggable({})
+                        .draggable(Object.assign({}, this.value || {}))
                         .on("dragmove", function (event) {
                         var target = event.target, x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx, y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
                         target.style.transform = "translate(" + x + "px, " + y + "px)";

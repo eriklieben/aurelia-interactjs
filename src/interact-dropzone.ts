@@ -1,17 +1,19 @@
-import { inject, bindable, bindingMode } from "aurelia-framework";
+import { inject } from "aurelia-framework";
 import * as interact from "interact";
 
 @inject(Element)
 export class InteractDropzoneCustomAttribute {
 
-  @bindable({ defaultBindingMode: bindingMode.oneTime })
-  public options;
+  /**
+   * interact.js options
+   */
+  value: {[key: string]: any};
 
   constructor(private element: HTMLElement) { }
 
   public attached() {
     interact(this.element)
-      .dropzone(Object.assign({}, this.options || {}))
+      .dropzone(Object.assign({}, this.value || {}))
         .on("dropactivate", (event) => this.dispatch("interact-dropactivate", event))
         .on("dragenter", (event) => this.dispatch("interact-dragenter", event))
         .on("dragleave", (event) => this.dispatch("interact-dragleave", event))

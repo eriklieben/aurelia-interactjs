@@ -11,7 +11,7 @@ System.register(["aurelia-framework", "interact"], function(exports_1, context_1
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var aurelia_framework_1, interact;
-    var InteractgesturableCustomAttribute;
+    var InteractGesturableCustomAttribute;
     return {
         setters:[
             function (aurelia_framework_1_1) {
@@ -21,35 +21,31 @@ System.register(["aurelia-framework", "interact"], function(exports_1, context_1
                 interact = interact_1;
             }],
         execute: function() {
-            InteractgesturableCustomAttribute = (function () {
-                function InteractgesturableCustomAttribute(element) {
+            InteractGesturableCustomAttribute = (function () {
+                function InteractGesturableCustomAttribute(element) {
                     this.element = element;
                 }
-                InteractgesturableCustomAttribute.prototype.attached = function () {
+                InteractGesturableCustomAttribute.prototype.attached = function () {
                     var _this = this;
                     interact(this.element)
-                        .dropzone(Object.assign({}, this.options || {}))
+                        .dropzone(Object.assign({}, this.value || {}))
                         .on("gesturestart", function (event) { return _this.dispatch("interact-gesturestart", event); })
                         .on("gesturemove", function (event) { return _this.dispatch("interact-gesturemove", event); })
                         .on("gestureend", function (event) { return _this.dispatch("interact-gestureend", event); });
                 };
-                InteractgesturableCustomAttribute.prototype.dispatch = function (name, data) {
+                InteractGesturableCustomAttribute.prototype.dispatch = function (name, data) {
                     this.element.dispatchEvent(new CustomEvent(name, {
                         bubbles: true,
                         detail: data,
                     }));
                 };
-                __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }), 
-                    __metadata('design:type', Object)
-                ], InteractgesturableCustomAttribute.prototype, "options", void 0);
-                InteractgesturableCustomAttribute = __decorate([
+                InteractGesturableCustomAttribute = __decorate([
                     aurelia_framework_1.inject(Element), 
                     __metadata('design:paramtypes', [HTMLElement])
-                ], InteractgesturableCustomAttribute);
-                return InteractgesturableCustomAttribute;
+                ], InteractGesturableCustomAttribute);
+                return InteractGesturableCustomAttribute;
             }());
-            exports_1("InteractgesturableCustomAttribute", InteractgesturableCustomAttribute);
+            exports_1("InteractGesturableCustomAttribute", InteractGesturableCustomAttribute);
         }
     }
 });
