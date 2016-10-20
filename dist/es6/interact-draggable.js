@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "interact"], function (require, exports, aurelia_framework_1, interact) {
+define(["require", "exports", 'aurelia-framework', 'interact'], function (require, exports, aurelia_framework_1, interact) {
     "use strict";
     var InteractDraggableCustomAttribute = (function () {
         function InteractDraggableCustomAttribute(element) {
@@ -17,10 +17,10 @@ define(["require", "exports", "aurelia-framework", "interact"], function (requir
             var _this = this;
             interact(this.element)
                 .draggable(Object.assign({}, this.value || {}))
-                .on("dragstart", function (event) { return _this.dispatch("interact-dragstart", event); })
-                .on("dragmove", function (event) { return _this.dispatch("interact-dragmove", event); })
-                .on("draginertiastart", function (event) { return _this.dispatch("interact-draginertiastart", event); })
-                .on("dragend", function (event) { return _this.dispatch("interact-dragend", event); });
+                .on('dragstart', function (event) { return _this.dispatch('interact-dragstart', event); })
+                .on('dragmove', function (event) { return _this.dispatch('interact-dragmove', event); })
+                .on('draginertiastart', function (event) { return _this.dispatch('interact-draginertiastart', event); })
+                .on('dragend', function (event) { return _this.dispatch('interact-dragend', event); });
         };
         InteractDraggableCustomAttribute.prototype.dispatch = function (name, data) {
             this.element.dispatchEvent(new CustomEvent(name, {

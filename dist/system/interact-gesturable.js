@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "interact"], function(exports_1, context_1) {
+System.register(['aurelia-framework', 'interact'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29,9 +29,9 @@ System.register(["aurelia-framework", "interact"], function(exports_1, context_1
                     var _this = this;
                     interact(this.element)
                         .dropzone(Object.assign({}, this.value || {}))
-                        .on("gesturestart", function (event) { return _this.dispatch("interact-gesturestart", event); })
-                        .on("gesturemove", function (event) { return _this.dispatch("interact-gesturemove", event); })
-                        .on("gestureend", function (event) { return _this.dispatch("interact-gestureend", event); });
+                        .on('gesturestart', function (event) { return _this.dispatch('interact-gesturestart', event); })
+                        .on('gesturemove', function (event) { return _this.dispatch('interact-gesturemove', event); })
+                        .on('gestureend', function (event) { return _this.dispatch('interact-gestureend', event); });
                 };
                 InteractGesturableCustomAttribute.prototype.dispatch = function (name, data) {
                     this.element.dispatchEvent(new CustomEvent(name, {

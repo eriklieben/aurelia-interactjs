@@ -11,15 +11,15 @@ __export(require('./interact-resizable'));
 __export(require('./resizable'));
 function configure(config, options) {
     var attributes = [
-        "./interact-draggable",
-        "./interact-dropzone",
-        "./interact-gesturable",
-        "./interact-resizable",
-        "./resizable"
+        './interact-draggable',
+        './interact-dropzone',
+        './interact-gesturable',
+        './interact-resizable',
+        './resizable',
     ];
     if (options && options.enableDragDropAttributes === true) {
-        attributes.push("./draggable");
-        attributes.push("./dropzone");
+        attributes.push('./draggable');
+        attributes.push('./dropzone');
     }
     config.globalResources(attributes);
 }

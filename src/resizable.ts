@@ -1,32 +1,32 @@
-import { inject } from "aurelia-framework";
-import * as interact from "interact";
+import { inject } from 'aurelia-framework';
+import * as interact from 'interact';
 
 @inject(Element)
 export class ResizableCustomAttribute {
 
+  public value: {[key: string]: any};
+
   /**
    * interact.js options
    */
-  defaults: {[key: string]: any} = {
+  private defaults: {[key: string]: any} = {
     edges: {
+      bottom: true,
       left: true,
       right: true,
-      bottom: true,
-      top: true
-    }
+      top: true,
+    },
   };
-
-  value: {[key: string]: any};
 
   constructor(private element: HTMLElement) { }
 
   public attached() {
 
-    this.element.classList.add("resizable");
+    this.element.classList.add('resizable');
 
     interact(this.element)
       .resizable(Object.assign({}, this.value || this.defaults))
-        .on("resizemove", event => {
+        .on('resizemove', event => {
           let target = event.target,
             x = (parseFloat(target.getAttribute('data-x')) || 0),
             y = (parseFloat(target.getAttribute('data-y')) || 0);
@@ -45,10 +45,10 @@ export class ResizableCustomAttribute {
           target.setAttribute('data-x', x);
           target.setAttribute('data-y', y);
 
-          target.classList.add("getting--resized");
+          target.classList.add('getting--resized');
         })
-        .on("resizeend", event => {
-          event.target.classList.remove("getting--resized");
+        .on('resizeend', event => {
+          event.target.classList.remove('getting--resized');
         });
   }
 }

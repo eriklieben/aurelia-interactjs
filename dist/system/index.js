@@ -3,15 +3,15 @@ System.register(['./draggable', './dropzone', './interact-draggable', './interac
     var __moduleName = context_1 && context_1.id;
     function configure(config, options) {
         var attributes = [
-            "./interact-draggable",
-            "./interact-dropzone",
-            "./interact-gesturable",
-            "./interact-resizable",
-            "./resizable"
+            './interact-draggable',
+            './interact-dropzone',
+            './interact-gesturable',
+            './interact-resizable',
+            './resizable',
         ];
         if (options && options.enableDragDropAttributes === true) {
-            attributes.push("./draggable");
-            attributes.push("./dropzone");
+            attributes.push('./draggable');
+            attributes.push('./dropzone');
         }
         config.globalResources(attributes);
     }

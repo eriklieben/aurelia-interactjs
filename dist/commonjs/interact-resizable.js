@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var aurelia_framework_1 = require("aurelia-framework");
-var interact = require("interact");
+var aurelia_framework_1 = require('aurelia-framework');
+var interact = require('interact');
 var InteractResizableCustomAttribute = (function () {
     function InteractResizableCustomAttribute(element) {
         this.element = element;
@@ -18,10 +18,10 @@ var InteractResizableCustomAttribute = (function () {
         var _this = this;
         interact(this.element)
             .resizable(Object.assign({}, this.value || {}))
-            .on("resizestart", function (event) { return _this.dispatch("interact-resizestart", event); })
-            .on("resizemove", function (event) { return _this.dispatch("interact-resizemove", event); })
-            .on("resizeinertiastart", function (event) { return _this.dispatch("interact-resizeinertiastart", event); })
-            .on("resizeend", function (event) { return _this.dispatch("interact-resizeend", event); });
+            .on('resizestart', function (event) { return _this.dispatch('interact-resizestart', event); })
+            .on('resizemove', function (event) { return _this.dispatch('interact-resizemove', event); })
+            .on('resizeinertiastart', function (event) { return _this.dispatch('interact-resizeinertiastart', event); })
+            .on('resizeend', function (event) { return _this.dispatch('interact-resizeend', event); });
     };
     InteractResizableCustomAttribute.prototype.dispatch = function (name, data) {
         this.element.dispatchEvent(new CustomEvent(name, {

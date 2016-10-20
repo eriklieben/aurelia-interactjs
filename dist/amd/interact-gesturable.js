@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "interact"], function (require, exports, aurelia_framework_1, interact) {
+define(["require", "exports", 'aurelia-framework', 'interact'], function (require, exports, aurelia_framework_1, interact) {
     "use strict";
     var InteractGesturableCustomAttribute = (function () {
         function InteractGesturableCustomAttribute(element) {
@@ -17,9 +17,9 @@ define(["require", "exports", "aurelia-framework", "interact"], function (requir
             var _this = this;
             interact(this.element)
                 .dropzone(Object.assign({}, this.value || {}))
-                .on("gesturestart", function (event) { return _this.dispatch("interact-gesturestart", event); })
-                .on("gesturemove", function (event) { return _this.dispatch("interact-gesturemove", event); })
-                .on("gestureend", function (event) { return _this.dispatch("interact-gestureend", event); });
+                .on('gesturestart', function (event) { return _this.dispatch('interact-gesturestart', event); })
+                .on('gesturemove', function (event) { return _this.dispatch('interact-gesturemove', event); })
+                .on('gestureend', function (event) { return _this.dispatch('interact-gestureend', event); });
         };
         InteractGesturableCustomAttribute.prototype.dispatch = function (name, data) {
             this.element.dispatchEvent(new CustomEvent(name, {

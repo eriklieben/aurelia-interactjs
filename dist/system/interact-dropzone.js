@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "interact"], function(exports_1, context_1) {
+System.register(['aurelia-framework', 'interact'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29,11 +29,11 @@ System.register(["aurelia-framework", "interact"], function(exports_1, context_1
                     var _this = this;
                     interact(this.element)
                         .dropzone(Object.assign({}, this.value || {}))
-                        .on("dropactivate", function (event) { return _this.dispatch("interact-dropactivate", event); })
-                        .on("dragenter", function (event) { return _this.dispatch("interact-dragenter", event); })
-                        .on("dragleave", function (event) { return _this.dispatch("interact-dragleave", event); })
-                        .on("drop", function (event) { return _this.dispatch("interact-drop", event); })
-                        .on("dropdeactivate", function (event) { return _this.dispatch("interact-dropdeactivate", event); });
+                        .on('dropactivate', function (event) { return _this.dispatch('interact-dropactivate', event); })
+                        .on('dragenter', function (event) { return _this.dispatch('interact-dragenter', event); })
+                        .on('dragleave', function (event) { return _this.dispatch('interact-dragleave', event); })
+                        .on('drop', function (event) { return _this.dispatch('interact-drop', event); })
+                        .on('dropdeactivate', function (event) { return _this.dispatch('interact-dropdeactivate', event); });
                 };
                 InteractDropzoneCustomAttribute.prototype.dispatch = function (name, data) {
                     this.element.dispatchEvent(new CustomEvent(name, {

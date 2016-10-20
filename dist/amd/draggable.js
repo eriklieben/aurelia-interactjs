@@ -7,28 +7,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "interact"], function (require, exports, aurelia_framework_1, interact) {
+define(["require", "exports", 'aurelia-framework', 'interact'], function (require, exports, aurelia_framework_1, interact) {
     "use strict";
     var DraggableCustomAttribute = (function () {
         function DraggableCustomAttribute(element) {
             this.element = element;
         }
         DraggableCustomAttribute.prototype.attached = function () {
-            this.element.classList.add("draggable");
+            this.element.classList.add('draggable');
             interact(this.element)
                 .draggable(Object.assign({}, this.value || {}))
-                .on("dragmove", function (event) {
-                var target = event.target, x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx, y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
-                target.style.transform = "translate(" + x + "px, " + y + "px)";
-                target.setAttribute("data-x", x);
-                target.setAttribute("data-y", y);
-                target.classList.add("getting--dragged");
+                .on('dragmove', function (event) {
+                var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx, y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+                target.setAttribute('data-x', x);
+                target.setAttribute('data-y', y);
+                target.classList.add('getting--dragged');
             })
-                .on("dragend", function (event) {
-                event.target.style.transform = "none";
-                event.target.removeAttribute("data-x");
-                event.target.removeAttribute("data-y");
-                event.target.classList.remove("getting--dragged");
+                .on('dragend', function (event) {
+                event.target.style.transform = 'none';
+                event.target.removeAttribute('data-x');
+                event.target.removeAttribute('data-y');
+                event.target.classList.remove('getting--dragged');
             });
         };
         DraggableCustomAttribute = __decorate([

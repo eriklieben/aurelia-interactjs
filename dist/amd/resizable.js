@@ -7,25 +7,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "interact"], function (require, exports, aurelia_framework_1, interact) {
+define(["require", "exports", 'aurelia-framework', 'interact'], function (require, exports, aurelia_framework_1, interact) {
     "use strict";
     var ResizableCustomAttribute = (function () {
         function ResizableCustomAttribute(element) {
             this.element = element;
             this.defaults = {
                 edges: {
+                    bottom: true,
                     left: true,
                     right: true,
-                    bottom: true,
-                    top: true
-                }
+                    top: true,
+                },
             };
         }
         ResizableCustomAttribute.prototype.attached = function () {
-            this.element.classList.add("resizable");
+            this.element.classList.add('resizable');
             interact(this.element)
                 .resizable(Object.assign({}, this.value || this.defaults))
-                .on("resizemove", function (event) {
+                .on('resizemove', function (event) {
                 var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0), y = (parseFloat(target.getAttribute('data-y')) || 0);
                 target.style.width = event.rect.width + 'px';
                 target.style.height = event.rect.height + 'px';
@@ -35,10 +35,10 @@ define(["require", "exports", "aurelia-framework", "interact"], function (requir
                     'translate(' + x + 'px,' + y + 'px)';
                 target.setAttribute('data-x', x);
                 target.setAttribute('data-y', y);
-                target.classList.add("getting--resized");
+                target.classList.add('getting--resized');
             })
-                .on("resizeend", function (event) {
-                event.target.classList.remove("getting--resized");
+                .on('resizeend', function (event) {
+                event.target.classList.remove('getting--resized');
             });
         };
         ResizableCustomAttribute = __decorate([
