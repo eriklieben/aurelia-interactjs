@@ -9,35 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 define(["require", "exports", "aurelia-framework", "interact"], function (require, exports, aurelia_framework_1, interact) {
     "use strict";
-    var InteractgesturableCustomAttribute = (function () {
-        function InteractgesturableCustomAttribute(element) {
+    var InteractGesturableCustomAttribute = (function () {
+        function InteractGesturableCustomAttribute(element) {
             this.element = element;
         }
-        InteractgesturableCustomAttribute.prototype.attached = function () {
+        InteractGesturableCustomAttribute.prototype.attached = function () {
             var _this = this;
             interact(this.element)
-                .dropzone(Object.assign({}, this.options || {}))
+                .dropzone(Object.assign({}, this.value || {}))
                 .on("gesturestart", function (event) { return _this.dispatch("interact-gesturestart", event); })
                 .on("gesturemove", function (event) { return _this.dispatch("interact-gesturemove", event); })
                 .on("gestureend", function (event) { return _this.dispatch("interact-gestureend", event); });
         };
-        InteractgesturableCustomAttribute.prototype.dispatch = function (name, data) {
+        InteractGesturableCustomAttribute.prototype.dispatch = function (name, data) {
             this.element.dispatchEvent(new CustomEvent(name, {
                 bubbles: true,
                 detail: data,
             }));
         };
-        __decorate([
-            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }), 
-            __metadata('design:type', Object)
-        ], InteractgesturableCustomAttribute.prototype, "options", void 0);
-        InteractgesturableCustomAttribute = __decorate([
+        InteractGesturableCustomAttribute = __decorate([
             aurelia_framework_1.inject(Element), 
             __metadata('design:paramtypes', [HTMLElement])
-        ], InteractgesturableCustomAttribute);
-        return InteractgesturableCustomAttribute;
+        ], InteractGesturableCustomAttribute);
+        return InteractGesturableCustomAttribute;
     }());
-    exports.InteractgesturableCustomAttribute = InteractgesturableCustomAttribute;
+    exports.InteractGesturableCustomAttribute = InteractGesturableCustomAttribute;
 });
 
 //# sourceMappingURL=interact-gesturable.js.map

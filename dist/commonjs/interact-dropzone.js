@@ -17,7 +17,7 @@ var InteractDropzoneCustomAttribute = (function () {
     InteractDropzoneCustomAttribute.prototype.attached = function () {
         var _this = this;
         interact(this.element)
-            .dropzone(Object.assign({}, this.options || {}))
+            .dropzone(Object.assign({}, this.value || {}))
             .on("dropactivate", function (event) { return _this.dispatch("interact-dropactivate", event); })
             .on("dragenter", function (event) { return _this.dispatch("interact-dragenter", event); })
             .on("dragleave", function (event) { return _this.dispatch("interact-dragleave", event); })
@@ -30,10 +30,6 @@ var InteractDropzoneCustomAttribute = (function () {
             detail: data,
         }));
     };
-    __decorate([
-        aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }), 
-        __metadata('design:type', Object)
-    ], InteractDropzoneCustomAttribute.prototype, "options", void 0);
     InteractDropzoneCustomAttribute = __decorate([
         aurelia_framework_1.inject(Element), 
         __metadata('design:paramtypes', [HTMLElement])

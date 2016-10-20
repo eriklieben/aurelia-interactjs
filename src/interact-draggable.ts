@@ -1,17 +1,19 @@
-import { inject, bindable, bindingMode } from "aurelia-framework";
+import { inject } from "aurelia-framework";
 import * as interact from "interact";
 
 @inject(Element)
 export class InteractDraggableCustomAttribute {
 
-  @bindable({ defaultBindingMode: bindingMode.oneTime })
-  public options;
+  /**
+   * interact.js options
+   */
+  value: {[key: string]: any};
 
   constructor(private element: HTMLElement) { }
 
   public attached() {
     interact(this.element)
-      .draggable(Object.assign({}, this.options || {}))
+      .draggable(Object.assign({}, this.value || {}))
       .on("dragstart", (event) => this.dispatch("interact-dragstart", event))
       .on("dragmove", (event) => this.dispatch("interact-dragmove", event))
       .on("draginertiastart", (event) => this.dispatch("interact-draginertiastart", event))

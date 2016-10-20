@@ -1,12 +1,15 @@
-import { inject, bindable, bindingMode } from "aurelia-framework";
+import { inject } from "aurelia-framework";
 import * as interact from "interact";
 
 @inject(Element)
 export class InteractResizableCustomAttribute {
 
   constructor(private element: HTMLElement) { }
-  
-  value: any;
+
+  /**
+   * interact.js options
+   */
+  value: {[key: string]: any};
 
   public attached() {
     interact(this.element)

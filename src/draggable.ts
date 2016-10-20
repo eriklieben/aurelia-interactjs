@@ -3,6 +3,12 @@ import * as interact from "interact";
 
 @inject(Element)
 export class DraggableCustomAttribute {
+
+  /**
+   * interact.js options
+   */
+  value: {[key: string]: any};
+
   constructor(private element: HTMLElement) { }
 
   public attached() {
@@ -10,7 +16,7 @@ export class DraggableCustomAttribute {
     this.element.classList.add("draggable");
 
     interact(this.element)
-      .draggable({})
+      .draggable(Object.assign({}, this.value || {}))
         .on("dragmove", event => {
           let target = event.target,
             x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx,

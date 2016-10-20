@@ -4,15 +4,22 @@ import * as interact from "interact";
 @inject(Element)
 export class DropzoneCustomAttribute {
 
+  /**
+   * interact.js options
+   */
+  defaults = {
+    accept: ".draggable",
+    overlap: .5,
+  };
+
+  value: {[key: string]: any};
+
   constructor(private element) { }
 
   public attached() {
 
     interact(this.element)
-      .dropzone({
-        accept: ".draggable",
-        overlap: .5,
-      })
+      .dropzone(Object.assign({}, this.value || this.defaults))
       .on("dropactivate", event => event.target.classList.add("can--drop"))
       .on("dragenter", event => {
 
