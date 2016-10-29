@@ -27,8 +27,6 @@ And perform the following command to add the configuration for aurelia-interactj
 ```
 au interact
 ```
-
-```
 Add the following line to ```src/main.js``` or ```src/main.ts```:
 ```diff
 export function configure(aurelia: Aurelia) {
