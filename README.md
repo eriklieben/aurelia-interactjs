@@ -21,26 +21,13 @@ export function configure(aurelia) {
 ## Aurelia-CLI
 Install the package:
 ```
-npm i aurelia-interactjs interact.js --save
+npm i aurelia-interactjs --save
+```
+And perform the following command to add the configuration for aurelia-interactjs to the aurelia.json config:
+```
+au interact
 ```
 
-Open up the file ```aurelia_project/aurelia.json``` and add the following in the bundles, vender-bundle.js dependencies section:
-```diff
-"aurelia-templating-binding",
-+ {
-+   "name": "interact.js",
-+   "path": "../node_modules/interact.js/dist",
-+   "main": "interact"
-+ },
-+ {
-+   "name": "aurelia-interactjs",
-+   "path": "../node_modules/aurelia-interactjs/dist/amd",
-+   "main": "index"
-+ },          
-{
-  "name": "text",
-  "path": "../scripts/text"
-},
 ```
 Add the following line to ```src/main.js``` or ```src/main.ts```:
 ```diff
