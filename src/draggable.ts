@@ -1,21 +1,13 @@
 import { inject } from 'aurelia-framework';
 import * as interact from 'interact';
+import InteractBase from './interact-base';
 
 @inject(Element)
-export class DraggableCustomAttribute {
-
-  /**
-   * interact.js options
-   */
-  public value: {[key: string]: any};
-
-  constructor(private element: HTMLElement) { }
-
-  public attached() {
-
+export class DraggableCustomAttribute extends InteractBase {
+  public bind() {
+    this.unsetInteractJs();
     this.element.classList.add('draggable');
-
-    interact(this.element)
+    this.interactable = interact(this.element)
       .draggable(Object.assign({}, this.value || {}))
         .on('dragmove', event => {
           let target = event.target,

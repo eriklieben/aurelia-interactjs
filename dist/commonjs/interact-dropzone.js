@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,13 +15,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var aurelia_framework_1 = require('aurelia-framework');
 var interact = require('interact');
-var InteractDropzoneCustomAttribute = (function () {
-    function InteractDropzoneCustomAttribute(element) {
-        this.element = element;
+var interact_base_1 = require('./interact-base');
+var InteractDropzoneCustomAttribute = (function (_super) {
+    __extends(InteractDropzoneCustomAttribute, _super);
+    function InteractDropzoneCustomAttribute() {
+        _super.apply(this, arguments);
     }
-    InteractDropzoneCustomAttribute.prototype.attached = function () {
+    InteractDropzoneCustomAttribute.prototype.bind = function () {
         var _this = this;
-        interact(this.element)
+        this.unsetInteractJs();
+        this.interactable = interact(this.element)
             .dropzone(Object.assign({}, this.value || {}))
             .on('dropactivate', function (event) { return _this.dispatch('interact-dropactivate', event); })
             .on('dragenter', function (event) { return _this.dispatch('interact-dragenter', event); })
@@ -24,18 +32,12 @@ var InteractDropzoneCustomAttribute = (function () {
             .on('drop', function (event) { return _this.dispatch('interact-drop', event); })
             .on('dropdeactivate', function (event) { return _this.dispatch('interact-dropdeactivate', event); });
     };
-    InteractDropzoneCustomAttribute.prototype.dispatch = function (name, data) {
-        this.element.dispatchEvent(new CustomEvent(name, {
-            bubbles: true,
-            detail: data,
-        }));
-    };
     InteractDropzoneCustomAttribute = __decorate([
         aurelia_framework_1.inject(Element), 
-        __metadata('design:paramtypes', [HTMLElement])
+        __metadata('design:paramtypes', [])
     ], InteractDropzoneCustomAttribute);
     return InteractDropzoneCustomAttribute;
-}());
+}(interact_base_1.default));
 exports.InteractDropzoneCustomAttribute = InteractDropzoneCustomAttribute;
 
 //# sourceMappingURL=interact-dropzone.js.map

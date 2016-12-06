@@ -1,6 +1,11 @@
-System.register(['aurelia-framework', 'interact'], function(exports_1, context_1) {
+System.register(['aurelia-framework', 'interact', './interact-base'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,7 +15,7 @@ System.register(['aurelia-framework', 'interact'], function(exports_1, context_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_framework_1, interact;
+    var aurelia_framework_1, interact, interact_base_1;
     var DraggableCustomAttribute;
     return {
         setters:[
@@ -19,15 +24,20 @@ System.register(['aurelia-framework', 'interact'], function(exports_1, context_1
             },
             function (interact_1) {
                 interact = interact_1;
+            },
+            function (interact_base_1_1) {
+                interact_base_1 = interact_base_1_1;
             }],
         execute: function() {
-            DraggableCustomAttribute = (function () {
-                function DraggableCustomAttribute(element) {
-                    this.element = element;
+            DraggableCustomAttribute = (function (_super) {
+                __extends(DraggableCustomAttribute, _super);
+                function DraggableCustomAttribute() {
+                    _super.apply(this, arguments);
                 }
-                DraggableCustomAttribute.prototype.attached = function () {
+                DraggableCustomAttribute.prototype.bind = function () {
+                    this.unsetInteractJs();
                     this.element.classList.add('draggable');
-                    interact(this.element)
+                    this.interactable = interact(this.element)
                         .draggable(Object.assign({}, this.value || {}))
                         .on('dragmove', function (event) {
                         var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx, y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
@@ -45,10 +55,10 @@ System.register(['aurelia-framework', 'interact'], function(exports_1, context_1
                 };
                 DraggableCustomAttribute = __decorate([
                     aurelia_framework_1.inject(Element), 
-                    __metadata('design:paramtypes', [HTMLElement])
+                    __metadata('design:paramtypes', [])
                 ], DraggableCustomAttribute);
                 return DraggableCustomAttribute;
-            }());
+            }(interact_base_1.default));
             exports_1("DraggableCustomAttribute", DraggableCustomAttribute);
         }
     }

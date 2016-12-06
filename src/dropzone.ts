@@ -1,10 +1,9 @@
 import { inject } from 'aurelia-framework';
 import * as interact from 'interact';
+import InteractBase from './interact-base';
 
 @inject(Element)
-export class DropzoneCustomAttribute {
-
-  public value: {[key: string]: any};
+export class DropzoneCustomAttribute extends InteractBase {
 
   /**
    * interact.js options
@@ -14,11 +13,9 @@ export class DropzoneCustomAttribute {
     overlap: .5,
   };
 
-  constructor(private element) { }
-
-  public attached() {
-
-    interact(this.element)
+  public bind() {
+    this.unsetInteractJs();
+    this.interactable = interact(this.element)
       .dropzone(Object.assign({}, this.value || this.defaults))
       .on('dropactivate', event => event.target.classList.add('can--drop'))
       .on('dragenter', event => {

@@ -1,3 +1,14 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.6...v2.0.1) (2016-12-05)
+
+### Features
+
+* **BREAKING CHANGE** now using bind/unbind instead of attached to manage lifecycle of the custom attributes to support the use of templatingEngine.enhance on existing DOM elements. This will not cause the majority of people an issue but the public interface of the classes has changed.  
+
+### Bug Fixes
+
+* Unset interactJs when unbinding
+
 <a name="1.0.11"></a>
 ## [1.0.11](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.6...v1.0.11) (2016-10-20)
 

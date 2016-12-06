@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,33 +12,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", 'aurelia-framework', 'interact'], function (require, exports, aurelia_framework_1, interact) {
+define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'], function (require, exports, aurelia_framework_1, interact, interact_base_1) {
     "use strict";
-    var InteractResizableCustomAttribute = (function () {
-        function InteractResizableCustomAttribute(element) {
-            this.element = element;
+    var InteractResizableCustomAttribute = (function (_super) {
+        __extends(InteractResizableCustomAttribute, _super);
+        function InteractResizableCustomAttribute() {
+            _super.apply(this, arguments);
         }
-        InteractResizableCustomAttribute.prototype.attached = function () {
+        InteractResizableCustomAttribute.prototype.bind = function () {
             var _this = this;
-            interact(this.element)
+            this.unsetInteractJs();
+            this.interactable = interact(this.element)
                 .resizable(Object.assign({}, this.value || {}))
                 .on('resizestart', function (event) { return _this.dispatch('interact-resizestart', event); })
                 .on('resizemove', function (event) { return _this.dispatch('interact-resizemove', event); })
                 .on('resizeinertiastart', function (event) { return _this.dispatch('interact-resizeinertiastart', event); })
                 .on('resizeend', function (event) { return _this.dispatch('interact-resizeend', event); });
         };
-        InteractResizableCustomAttribute.prototype.dispatch = function (name, data) {
-            this.element.dispatchEvent(new CustomEvent(name, {
-                bubbles: true,
-                detail: data,
-            }));
-        };
         InteractResizableCustomAttribute = __decorate([
             aurelia_framework_1.inject(Element), 
-            __metadata('design:paramtypes', [HTMLElement])
+            __metadata('design:paramtypes', [])
         ], InteractResizableCustomAttribute);
         return InteractResizableCustomAttribute;
-    }());
+    }(interact_base_1.default));
     exports.InteractResizableCustomAttribute = InteractResizableCustomAttribute;
 });
 
