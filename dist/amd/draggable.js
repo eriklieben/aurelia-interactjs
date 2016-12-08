@@ -12,7 +12,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'], function (require, exports, aurelia_framework_1, interact, interact_base_1) {
+define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'], function (require, exports, aurelia_framework_1, Interact, interact_base_1) {
     "use strict";
     var DraggableCustomAttribute = (function (_super) {
         __extends(DraggableCustomAttribute, _super);
@@ -22,8 +22,8 @@ define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'
         DraggableCustomAttribute.prototype.bind = function () {
             this.unsetInteractJs();
             this.element.classList.add('draggable');
-            this.interactable = interact(this.element)
-                .draggable(Object.assign({}, this.value || {}))
+            this.interactable = this.interact(this.element, this.getInteractableOptions())
+                .draggable(this.getActionOptions())
                 .on('dragmove', function (event) {
                 var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx, y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
                 target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
@@ -39,7 +39,7 @@ define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'
             });
         };
         DraggableCustomAttribute = __decorate([
-            aurelia_framework_1.inject(Element), 
+            aurelia_framework_1.inject(Element, Interact), 
             __metadata('design:paramtypes', [])
         ], DraggableCustomAttribute);
         return DraggableCustomAttribute;

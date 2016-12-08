@@ -9,7 +9,9 @@ __export(require('./interact-dropzone'));
 __export(require('./interact-gesturable'));
 __export(require('./interact-resizable'));
 __export(require('./resizable'));
-function configure(config, options) {
+var Interact = require('interact');
+function configure(aurelia, options) {
+    aurelia.container.registerInstance(Interact, Interact);
     var attributes = [
         './interact-draggable',
         './interact-dropzone',
@@ -21,7 +23,7 @@ function configure(config, options) {
         attributes.push('./draggable');
         attributes.push('./dropzone');
     }
-    config.globalResources(attributes);
+    aurelia.globalResources(attributes);
 }
 exports.configure = configure;
 

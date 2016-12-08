@@ -41,12 +41,42 @@ export function configure(aurelia: Aurelia) {
 ```
 
 # Generic attributes
-Each attribute can be supplied with custom options that will be pased to interactjs, see the interactjs documentation for the options http://interactjs.io/docs/#action-options
+Each attribute can be supplied with custom options that will be pased to interactjs, and are split into 2 types.
+These are Interactable options and Action options.
+
+See the [interactjs documentation]( http://interactjs.io/docs/#action-options) for the Action options.
+
+Interactable options are described in the code. See the default values [here](https://github.com/taye/interact.js/blob/master/src/defaultOptions.js).
+
+Prior to v2.0.7 only, action options were supported by the wrapper, for example:
 
 ## Usage:
+
+### Action options only (pre and post 2.0.7)
+```html
+<div interact-draggable.bind="actionOptions" />
+```
+```js
+let actionOptions = {
+  overlap: 0.1
+} 
+```
+
+### Action and Intreactable options usage:
+In v2.0.7 and above both types are supported, for example:
+
 ```html
 <div interact-draggable.bind="options" />
 ```
+
+```js
+let options = {
+  action: { overlap: 0.1 }, 
+  interactable: { preventDefault: 'never' }
+} 
+```
+NOTE: If you use more than one custom attribute on a HTML element (e.g. draggable and dropzone on the same DIV) you should 
+duplicate the interactable options on both as the fist one that is evaluated creates the interactable which is subsequently cached. 
 
 Each event can be used in the following way:
 

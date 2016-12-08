@@ -5,9 +5,10 @@ export * from './interact-dropzone';
 export * from './interact-gesturable';
 export * from './interact-resizable';
 export * from './resizable';
+import * as Interact from 'interact';
 
-export function configure(config, options) {
-
+export function configure(aurelia, options) {
+  aurelia.container.registerInstance(Interact, Interact);
   let attributes = [
     './interact-draggable',
     './interact-dropzone',
@@ -21,5 +22,5 @@ export function configure(config, options) {
     attributes.push('./dropzone');
   }
 
-  config.globalResources(attributes);
+  aurelia.globalResources(attributes);
 }

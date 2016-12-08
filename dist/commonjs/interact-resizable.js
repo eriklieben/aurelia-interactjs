@@ -14,7 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var aurelia_framework_1 = require('aurelia-framework');
-var interact = require('interact');
+var Interact = require('interact');
 var interact_base_1 = require('./interact-base');
 var InteractResizableCustomAttribute = (function (_super) {
     __extends(InteractResizableCustomAttribute, _super);
@@ -24,15 +24,15 @@ var InteractResizableCustomAttribute = (function (_super) {
     InteractResizableCustomAttribute.prototype.bind = function () {
         var _this = this;
         this.unsetInteractJs();
-        this.interactable = interact(this.element)
-            .resizable(Object.assign({}, this.value || {}))
+        this.interactable = this.interact(this.element, this.getInteractableOptions())
+            .resizable(this.getActionOptions())
             .on('resizestart', function (event) { return _this.dispatch('interact-resizestart', event); })
             .on('resizemove', function (event) { return _this.dispatch('interact-resizemove', event); })
             .on('resizeinertiastart', function (event) { return _this.dispatch('interact-resizeinertiastart', event); })
             .on('resizeend', function (event) { return _this.dispatch('interact-resizeend', event); });
     };
     InteractResizableCustomAttribute = __decorate([
-        aurelia_framework_1.inject(Element), 
+        aurelia_framework_1.inject(Element, Interact), 
         __metadata('design:paramtypes', [])
     ], InteractResizableCustomAttribute);
     return InteractResizableCustomAttribute;

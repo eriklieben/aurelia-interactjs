@@ -14,7 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var aurelia_framework_1 = require('aurelia-framework');
-var interact = require('interact');
+var Interact = require('interact');
 var interact_base_1 = require('./interact-base');
 var DraggableCustomAttribute = (function (_super) {
     __extends(DraggableCustomAttribute, _super);
@@ -24,8 +24,8 @@ var DraggableCustomAttribute = (function (_super) {
     DraggableCustomAttribute.prototype.bind = function () {
         this.unsetInteractJs();
         this.element.classList.add('draggable');
-        this.interactable = interact(this.element)
-            .draggable(Object.assign({}, this.value || {}))
+        this.interactable = this.interact(this.element, this.getInteractableOptions())
+            .draggable(this.getActionOptions())
             .on('dragmove', function (event) {
             var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx, y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
             target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
@@ -41,7 +41,7 @@ var DraggableCustomAttribute = (function (_super) {
         });
     };
     DraggableCustomAttribute = __decorate([
-        aurelia_framework_1.inject(Element), 
+        aurelia_framework_1.inject(Element, Interact), 
         __metadata('design:paramtypes', [])
     ], DraggableCustomAttribute);
     return DraggableCustomAttribute;

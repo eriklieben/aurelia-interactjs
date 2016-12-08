@@ -15,15 +15,15 @@ System.register(['aurelia-framework', 'interact', './interact-base'], function(e
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_framework_1, interact, interact_base_1;
+    var aurelia_framework_1, Interact, interact_base_1;
     var InteractDropzoneCustomAttribute;
     return {
         setters:[
             function (aurelia_framework_1_1) {
                 aurelia_framework_1 = aurelia_framework_1_1;
             },
-            function (interact_1) {
-                interact = interact_1;
+            function (Interact_1) {
+                Interact = Interact_1;
             },
             function (interact_base_1_1) {
                 interact_base_1 = interact_base_1_1;
@@ -37,8 +37,8 @@ System.register(['aurelia-framework', 'interact', './interact-base'], function(e
                 InteractDropzoneCustomAttribute.prototype.bind = function () {
                     var _this = this;
                     this.unsetInteractJs();
-                    this.interactable = interact(this.element)
-                        .dropzone(Object.assign({}, this.value || {}))
+                    this.interactable = this.interact(this.element, this.getInteractableOptions())
+                        .dropzone(this.getActionOptions())
                         .on('dropactivate', function (event) { return _this.dispatch('interact-dropactivate', event); })
                         .on('dragenter', function (event) { return _this.dispatch('interact-dragenter', event); })
                         .on('dragleave', function (event) { return _this.dispatch('interact-dragleave', event); })
@@ -46,7 +46,7 @@ System.register(['aurelia-framework', 'interact', './interact-base'], function(e
                         .on('dropdeactivate', function (event) { return _this.dispatch('interact-dropdeactivate', event); });
                 };
                 InteractDropzoneCustomAttribute = __decorate([
-                    aurelia_framework_1.inject(Element), 
+                    aurelia_framework_1.inject(Element, Interact), 
                     __metadata('design:paramtypes', [])
                 ], InteractDropzoneCustomAttribute);
                 return InteractDropzoneCustomAttribute;

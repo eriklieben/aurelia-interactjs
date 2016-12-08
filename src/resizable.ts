@@ -1,8 +1,8 @@
 import { inject } from 'aurelia-framework';
-import * as interact from 'interact';
+import * as Interact from 'interact';
 import InteractBase from './interact-base';
 
-@inject(Element)
+@inject(Element, Interact)
 export class ResizableCustomAttribute extends InteractBase {
 
   /**
@@ -20,8 +20,8 @@ export class ResizableCustomAttribute extends InteractBase {
   public bind() {
     this.unsetInteractJs();
     this.element.classList.add('resizable');
-    this.interactable = interact(this.element)
-      .resizable(Object.assign({}, this.value || this.defaults))
+    this.interactable = this.interact(this.element, this.getInteractableOptions())
+      .resizable(this.getActionOptions(this.defaults))
         .on('resizemove', event => {
           let target = event.target,
             x = (parseFloat(target.getAttribute('data-x')) || 0),

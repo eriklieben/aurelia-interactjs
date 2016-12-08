@@ -15,15 +15,15 @@ System.register(['aurelia-framework', 'interact', './interact-base'], function(e
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_framework_1, interact, interact_base_1;
+    var aurelia_framework_1, Interact, interact_base_1;
     var DraggableCustomAttribute;
     return {
         setters:[
             function (aurelia_framework_1_1) {
                 aurelia_framework_1 = aurelia_framework_1_1;
             },
-            function (interact_1) {
-                interact = interact_1;
+            function (Interact_1) {
+                Interact = Interact_1;
             },
             function (interact_base_1_1) {
                 interact_base_1 = interact_base_1_1;
@@ -37,8 +37,8 @@ System.register(['aurelia-framework', 'interact', './interact-base'], function(e
                 DraggableCustomAttribute.prototype.bind = function () {
                     this.unsetInteractJs();
                     this.element.classList.add('draggable');
-                    this.interactable = interact(this.element)
-                        .draggable(Object.assign({}, this.value || {}))
+                    this.interactable = this.interact(this.element, this.getInteractableOptions())
+                        .draggable(this.getActionOptions())
                         .on('dragmove', function (event) {
                         var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx, y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
                         target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
@@ -54,7 +54,7 @@ System.register(['aurelia-framework', 'interact', './interact-base'], function(e
                     });
                 };
                 DraggableCustomAttribute = __decorate([
-                    aurelia_framework_1.inject(Element), 
+                    aurelia_framework_1.inject(Element, Interact), 
                     __metadata('design:paramtypes', [])
                 ], DraggableCustomAttribute);
                 return DraggableCustomAttribute;
