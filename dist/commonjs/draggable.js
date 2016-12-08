@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,13 +15,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var aurelia_framework_1 = require('aurelia-framework');
 var interact = require('interact');
-var DraggableCustomAttribute = (function () {
-    function DraggableCustomAttribute(element) {
-        this.element = element;
+var interact_base_1 = require('./interact-base');
+var DraggableCustomAttribute = (function (_super) {
+    __extends(DraggableCustomAttribute, _super);
+    function DraggableCustomAttribute() {
+        _super.apply(this, arguments);
     }
-    DraggableCustomAttribute.prototype.attached = function () {
+    DraggableCustomAttribute.prototype.bind = function () {
+        this.unsetInteractJs();
         this.element.classList.add('draggable');
-        interact(this.element)
+        this.interactable = interact(this.element)
             .draggable(Object.assign({}, this.value || {}))
             .on('dragmove', function (event) {
             var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx, y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
@@ -34,10 +42,10 @@ var DraggableCustomAttribute = (function () {
     };
     DraggableCustomAttribute = __decorate([
         aurelia_framework_1.inject(Element), 
-        __metadata('design:paramtypes', [HTMLElement])
+        __metadata('design:paramtypes', [])
     ], DraggableCustomAttribute);
     return DraggableCustomAttribute;
-}());
+}(interact_base_1.default));
 exports.DraggableCustomAttribute = DraggableCustomAttribute;
 
 //# sourceMappingURL=draggable.js.map
