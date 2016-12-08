@@ -1,7 +1,9 @@
-System.register(['./draggable', './dropzone', './interact-draggable', './interact-dropzone', './interact-gesturable', './interact-resizable', './resizable'], function(exports_1, context_1) {
+System.register(['./draggable', './dropzone', './interact-draggable', './interact-dropzone', './interact-gesturable', './interact-resizable', './resizable', 'interact'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    function configure(config, options) {
+    var Interact;
+    function configure(aurelia, options) {
+        aurelia.container.registerInstance(Interact, Interact);
         var attributes = [
             './interact-draggable',
             './interact-dropzone',
@@ -13,7 +15,7 @@ System.register(['./draggable', './dropzone', './interact-draggable', './interac
             attributes.push('./draggable');
             attributes.push('./dropzone');
         }
-        config.globalResources(attributes);
+        aurelia.globalResources(attributes);
     }
     exports_1("configure", configure);
     var exportedNames_1 = {
@@ -48,6 +50,9 @@ System.register(['./draggable', './dropzone', './interact-draggable', './interac
             },
             function (resizable_1_1) {
                 exportStar_1(resizable_1_1);
+            },
+            function (Interact_1) {
+                Interact = Interact_1;
             }],
         execute: function() {
         }

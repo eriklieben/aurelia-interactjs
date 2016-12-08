@@ -1,8 +1,8 @@
 import { inject } from 'aurelia-framework';
-import * as interact from 'interact';
+import * as Interact from 'interact';
 import InteractBase from './interact-base';
 
-@inject(Element)
+@inject(Element, Interact)
 export class DropzoneCustomAttribute extends InteractBase {
 
   /**
@@ -15,8 +15,8 @@ export class DropzoneCustomAttribute extends InteractBase {
 
   public bind() {
     this.unsetInteractJs();
-    this.interactable = interact(this.element)
-      .dropzone(Object.assign({}, this.value || this.defaults))
+    this.interactable = this.interact(this.element, this.getInteractableOptions())
+      .dropzone(this.getActionOptions(this.defaults))
       .on('dropactivate', event => event.target.classList.add('can--drop'))
       .on('dragenter', event => {
 

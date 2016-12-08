@@ -15,15 +15,15 @@ System.register(['aurelia-framework', 'interact', './interact-base'], function(e
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_framework_1, interact, interact_base_1;
+    var aurelia_framework_1, Interact, interact_base_1;
     var ResizableCustomAttribute;
     return {
         setters:[
             function (aurelia_framework_1_1) {
                 aurelia_framework_1 = aurelia_framework_1_1;
             },
-            function (interact_1) {
-                interact = interact_1;
+            function (Interact_1) {
+                Interact = Interact_1;
             },
             function (interact_base_1_1) {
                 interact_base_1 = interact_base_1_1;
@@ -45,8 +45,8 @@ System.register(['aurelia-framework', 'interact', './interact-base'], function(e
                 ResizableCustomAttribute.prototype.bind = function () {
                     this.unsetInteractJs();
                     this.element.classList.add('resizable');
-                    this.interactable = interact(this.element)
-                        .resizable(Object.assign({}, this.value || this.defaults))
+                    this.interactable = this.interact(this.element, this.getInteractableOptions())
+                        .resizable(this.getActionOptions(this.defaults))
                         .on('resizemove', function (event) {
                         var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0), y = (parseFloat(target.getAttribute('data-y')) || 0);
                         target.style.width = event.rect.width + 'px';
@@ -64,7 +64,7 @@ System.register(['aurelia-framework', 'interact', './interact-base'], function(e
                     });
                 };
                 ResizableCustomAttribute = __decorate([
-                    aurelia_framework_1.inject(Element), 
+                    aurelia_framework_1.inject(Element, Interact), 
                     __metadata('design:paramtypes', [])
                 ], ResizableCustomAttribute);
                 return ResizableCustomAttribute;

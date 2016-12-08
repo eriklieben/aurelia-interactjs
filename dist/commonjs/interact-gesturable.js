@@ -14,7 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var aurelia_framework_1 = require('aurelia-framework');
-var interact = require('interact');
+var Interact = require('interact');
 var interact_base_1 = require('./interact-base');
 var InteractGesturableCustomAttribute = (function (_super) {
     __extends(InteractGesturableCustomAttribute, _super);
@@ -24,14 +24,14 @@ var InteractGesturableCustomAttribute = (function (_super) {
     InteractGesturableCustomAttribute.prototype.bind = function () {
         var _this = this;
         this.unsetInteractJs();
-        this.interactable = interact(this.element)
-            .dropzone(Object.assign({}, this.value || {}))
+        this.interactable = this.interact(this.element, this.getInteractableOptions())
+            .dropzone(this.getActionOptions())
             .on('gesturestart', function (event) { return _this.dispatch('interact-gesturestart', event); })
             .on('gesturemove', function (event) { return _this.dispatch('interact-gesturemove', event); })
             .on('gestureend', function (event) { return _this.dispatch('interact-gestureend', event); });
     };
     InteractGesturableCustomAttribute = __decorate([
-        aurelia_framework_1.inject(Element), 
+        aurelia_framework_1.inject(Element, Interact), 
         __metadata('design:paramtypes', [])
     ], InteractGesturableCustomAttribute);
     return InteractGesturableCustomAttribute;

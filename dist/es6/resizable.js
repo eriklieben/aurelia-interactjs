@@ -12,7 +12,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'], function (require, exports, aurelia_framework_1, interact, interact_base_1) {
+define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'], function (require, exports, aurelia_framework_1, Interact, interact_base_1) {
     "use strict";
     var ResizableCustomAttribute = (function (_super) {
         __extends(ResizableCustomAttribute, _super);
@@ -30,8 +30,8 @@ define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'
         ResizableCustomAttribute.prototype.bind = function () {
             this.unsetInteractJs();
             this.element.classList.add('resizable');
-            this.interactable = interact(this.element)
-                .resizable(Object.assign({}, this.value || this.defaults))
+            this.interactable = this.interact(this.element, this.getInteractableOptions())
+                .resizable(this.getActionOptions(this.defaults))
                 .on('resizemove', function (event) {
                 var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0), y = (parseFloat(target.getAttribute('data-y')) || 0);
                 target.style.width = event.rect.width + 'px';
@@ -49,7 +49,7 @@ define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'
             });
         };
         ResizableCustomAttribute = __decorate([
-            aurelia_framework_1.inject(Element), 
+            aurelia_framework_1.inject(Element, Interact), 
             __metadata('design:paramtypes', [])
         ], ResizableCustomAttribute);
         return ResizableCustomAttribute;

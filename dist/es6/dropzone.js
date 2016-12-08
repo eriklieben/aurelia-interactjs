@@ -12,7 +12,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'], function (require, exports, aurelia_framework_1, interact, interact_base_1) {
+define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'], function (require, exports, aurelia_framework_1, Interact, interact_base_1) {
     "use strict";
     var DropzoneCustomAttribute = (function (_super) {
         __extends(DropzoneCustomAttribute, _super);
@@ -26,8 +26,8 @@ define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'
         DropzoneCustomAttribute.prototype.bind = function () {
             var _this = this;
             this.unsetInteractJs();
-            this.interactable = interact(this.element)
-                .dropzone(Object.assign({}, this.value || this.defaults))
+            this.interactable = this.interact(this.element, this.getInteractableOptions())
+                .dropzone(this.getActionOptions(this.defaults))
                 .on('dropactivate', function (event) { return event.target.classList.add('can--drop'); })
                 .on('dragenter', function (event) {
                 var draggableElement = event.relatedTarget, dropzoneElement = event.target;
@@ -54,7 +54,7 @@ define(["require", "exports", 'aurelia-framework', 'interact', './interact-base'
             });
         };
         DropzoneCustomAttribute = __decorate([
-            aurelia_framework_1.inject(Element), 
+            aurelia_framework_1.inject(Element, Interact), 
             __metadata('design:paramtypes', [])
         ], DropzoneCustomAttribute);
         return DropzoneCustomAttribute;

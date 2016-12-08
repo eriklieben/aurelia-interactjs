@@ -1,3 +1,41 @@
+<a name="2.0.7"></a>
+## [2.0.7](https://github.com/eriklieben/aurelia-interactjs/compare/v2.0.6...v2.0.7) (2016-12-08)
+
+
+
+<a name="2.0.6"></a>
+## [2.0.6](https://github.com/eriklieben/aurelia-interactjs/compare/v2.0.5...v2.0.6) (2016-12-08)
+
+
+
+<a name="2.0.5"></a>
+## [2.0.5](https://github.com/eriklieben/aurelia-interactjs/compare/v2.0.4...v2.0.5) (2016-12-08)
+
+
+
+<a name="2.0.4"></a>
+## [2.0.4](https://github.com/eriklieben/aurelia-interactjs/compare/v2.0.3...v2.0.4) (2016-12-08)
+
+
+
+<a name="2.0.3"></a>
+## [2.0.3](https://github.com/eriklieben/aurelia-interactjs/compare/v2.0.2...v2.0.3) (2016-12-08)
+
+
+
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.6...v2.0.2) (2016-12-08)
+
+
+### Bug Fixes
+
+* **interact:** import 'interact' instead of 'interact.js' and bump version ([0ad0795](https://github.com/eriklieben/aurelia-interactjs/commit/0ad0795))
+* **jspm:** add interact.js with interact alias ([e4045cb](https://github.com/eriklieben/aurelia-interactjs/commit/e4045cb))
+* **jspm:** disable jspm node convention ([72b66d7](https://github.com/eriklieben/aurelia-interactjs/commit/72b66d7))
+* **lifecycle:** Moved from 'attached' to 'bind' for setting up the custom attribute ([#5](https://github.com/eriklieben/aurelia-interactjs/issues/5)), resolves [#4](https://github.com/eriklieben/aurelia-interactjs/issues/4) ([2d48f08](https://github.com/eriklieben/aurelia-interactjs/commit/2d48f08))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/eriklieben/aurelia-interactjs/compare/v1.0.6...v2.0.1) (2016-12-05)
 

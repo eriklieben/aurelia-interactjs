@@ -1,6 +1,6 @@
 {
   "name": "aurelia-interactjs",
-  "version": "2.0.1",
+  "version": "2.0.7",
   "description": "Plugin to use interact.js with Aurelia.",
   "keywords": [
     "aurelia",
@@ -71,13 +71,14 @@
   },
   "jspm": {
     "registry": "npm",
-    "jspmNodeConversion": false,
     "main": "index",
     "format": "amd",
+    "jspmNodeConversion": false,
     "directories": {
       "dist": "dist/amd"
     },
     "dependencies": {
+      "aurelia-framework": "^1.0.7",
       "interact": "npm:interact.js@^1.2.6"
     },
     "devDependencies": {
