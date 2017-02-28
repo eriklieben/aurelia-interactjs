@@ -2,6 +2,8 @@
 
 Aurelia plugin to use the [interact.js](http://interactjs.io/) library.
 
+Inspired by a blog post from Matthew James Davis [Drag-and-drop in Aurelia](http://davismj.me/blog/aurelia-drag-and-drop/).
+
 # Installation
 
 ## JSPM
